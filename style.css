@@ -1,13 +1,13 @@
 /* ---------- Palette ---------- */
 :root {
-  --citrus: #FFA62B;   /* Citrus Zest  */
-  --sea:    #86C5FF;   /* Sea Breeze   */
-  --amalfi: #2E5AA7;   /* Amalfi Tile  */
-  --cream:  #F8E6A0;   /* Cream Gelato */
+  --citrus: #223662;   /* Rhino  */
+  --sea:    #B9A5D2;   /* London Hue   */
+  --amalfi: #E0BAAA;   /* Cashmere  */
+  --cream:  #261834;   /* Bleached Cedar */
 
   /* Two helpers derived from the palette */
-  --paper:  #FFF9E3;   /* lighter tint of Cream Gelato, for page and cards */
-  --ink:    #14264D;   /* deep navy, for text and outlines */
+  --paper:  #F6F3F5;   /* lighter tint of Cream Gelato, for page and cards */
+  --ink:    #170D21;   /* deep navy, for text and outlines */
 
   --radius: 20px;
 }
