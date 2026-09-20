@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maqtaba | A Cloud Library</title>
+  <meta name="description" content="Maqtaba is a cloud library. Browse, search and read from anywhere.">
+
+  <!-- Fonts: Fraunces (bold display serif for the title and headings), DM Sans (body), Noto Naskh Arabic (ghost title) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700..900&family=Noto+Naskh+Arabic:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top">Maqtaba</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#new-arrivals">New Arrivals</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#about">Who are we?</a></li>
+          <li><a href="#browse">Browse</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO PHOTO -->
+    <!-- EDIT: replace the placeholder below with <img class="hero-photo-img" src="hero.jpg" alt="Description of your photo"> -->
+    <section class="hero-photo">
+      <div class="hero-photo-img photo-placeholder" role="img" aria-label="Placeholder for your hero photo">
+        <span>Your photo here &mdash; save it as hero.jpg next to index.html, then swap this div for an &lt;img&gt; tag (see comment in the code)</span>
+      </div>
+      <div class="hero-photo-overlay">
+        <div class="hero-title">
+          <!-- Decorative Arabic word for "library", layered behind the title -->
+          <span class="ghost" lang="ar" dir="rtl" aria-hidden="true">مكتبة</span>
+          <h1 class="title">Maqtaba</h1>
+        </div>
+        <!-- EDIT: your tagline -->
+        <p class="tagline">A cloud library, open whenever you are.</p>
+        <a class="btn" href="#new-arrivals">Shop new arrivals</a>
+      </div>
+    </section>
+    <div class="tile-band" aria-hidden="true"></div>
+
+    <!-- NEW ARRIVALS -->
+    <section class="section" id="new-arrivals">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>New Arrivals</h2>
+          <a class="link-all" href="#browse">Browse all &rarr;</a>
+        </div>
+        <!-- EDIT: your intro line -->
+        <p class="lead">Fresh additions to the collection, added this month.</p>
+        <div id="new-arrivals-grid" class="grid"></div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL / ARTICLES -->
+    <section class="section section-sea" id="stories">
+      <div class="wrap">
+        <h2>From the Stacks</h2>
+        <!-- EDIT: your intro line -->
+        <p class="lead">Essays, reading lists and notes from the people building Maqtaba.</p>
+
+        <div class="editorial-grid">
+          <!-- EDIT: swap each placeholder for <img class="editorial-img" src="your-photo.jpg" alt="..."> and write the real teaser text -->
+          <article class="editorial-block">
+            <div class="editorial-img photo-placeholder" role="img" aria-label="Placeholder for an article photo">
+              <span>Article photo here</span>
+            </div>
+            <div class="editorial-text">
+              <span class="eb-kicker">Essay</span>
+              <h3>Article title goes here</h3>
+              <p>A short teaser sentence or two about what the piece covers.</p>
+              <a class="btn btn-small" href="#">Read more</a>
+            </div>
+          </article>
+
+          <article class="editorial-block editorial-reverse">
+            <div class="editorial-img photo-placeholder" role="img" aria-label="Placeholder for an article photo">
+              <span>Article photo here</span>
+            </div>
+            <div class="editorial-text">
+              <span class="eb-kicker">Reading list</span>
+              <h3>Article title goes here</h3>
+              <p>A short teaser sentence or two about what the piece covers.</p>
+              <a class="btn btn-small" href="#">Read more</a>
+            </div>
+          </article>
+
+          <article class="editorial-block">
+            <div class="editorial-img photo-placeholder" role="img" aria-label="Placeholder for an article photo">
+              <span>Article photo here</span>
+            </div>
+            <div class="editorial-text">
+              <span class="eb-kicker">Notes</span>
+              <h3>Article title goes here</h3>
+              <p>A short teaser sentence or two about what the piece covers.</p>
+              <a class="btn btn-small" href="#">Read more</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO ARE WE? -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2>Who are we?</h2>
+        <!-- EDIT: replace this placeholder text with your own story -->
+        <p class="lead">Maqtaba is a word for library, and that is exactly what we are building: a library that lives in the cloud, so the books are there wherever you are.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Open to everyone</h3>
+            <p>A place for readers of every background to find something worth reading.</p>
+          </article>
+          <article class="card">
+            <h3>Always on</h3>
+            <p>No opening hours and no due dates. Pick up where you left off, on any device.</p>
+          </article>
+          <article class="card">
+            <h3>Built with care</h3>
+            <p>A collection that grows through the people who love it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BROWSE -->
+    <section class="section section-sea" id="browse">
+      <div class="wrap">
+        <h2>Browse</h2>
+
+        <div class="toolbar">
+          <label class="sr-only" for="search">Search the library</label>
+          <input id="search" type="search" placeholder="Search by title or author" autocomplete="off">
+          <div id="chips" class="chips" role="group" aria-label="Filter by category"></div>
+        </div>
+
+        <p id="count" class="count" aria-live="polite"></p>
+        <div id="book-grid" class="grid"></div>
+        <p id="empty" class="empty" hidden>Nothing matches that search. Try a different word or category.</p>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="section section-cream" id="faqs">
+      <div class="wrap">
+        <h2>FAQs</h2>
+        <!-- EDIT: replace these placeholder questions and answers -->
+        <div class="faq-list">
+          <details>
+            <summary>What is Maqtaba?</summary>
+            <p>Maqtaba is a cloud library: a place to browse and read a growing collection from any device.</p>
+          </details>
+          <details>
+            <summary>Do I need an account?</summary>
+            <p>Browsing is open to everyone. Accounts will be needed for uploading and saving titles.</p>
+          </details>
+          <details>
+            <summary>How do I find a book?</summary>
+            <p>Use the search box in Browse, or tap a category to narrow the list.</p>
+          </details>
+          <details>
+            <summary>Can I use it on my phone?</summary>
+            <p>Yes. The site adapts to phones, tablets and computers.</p>
+          </details>
+          <details>
+            <summary>How can I contribute?</summary>
+            <p>Contributions are coming soon. Check back, or get in touch through the details below.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <span class="brand">Maqtaba</span>
+      <span>&copy; <span id="year"></span> Maqtaba. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
