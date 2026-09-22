@@ -1,0 +1,552 @@
+/* ---------- Palette ---------- */
+:root {
+  --citrus: #72370C;   /* Light Brown */
+  --sea:    #FFF3C9;   /* Soft Butter */
+  --amalfi: #860010;   /* Cherry      */
+  --cream:  #F6F4ED;   /* Dusty White */
+
+  /* Two helpers derived from the palette */
+  --paper:  #FDFBF8;   /* near-white tint, lighter than Dusty White, for page and cards */
+  --ink:    #241008;   /* deep warm brown-black, for text and outlines */
+
+  --radius: 20px;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, h3, .brand {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+a { color: inherit; }
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+.site-header :focus-visible { outline-color: var(--cream); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--amalfi);
+  color: var(--cream);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding-block: 0.8rem;
+}
+
+.brand {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: var(--sea); /* light against the header/footer's dark Cherry background */
+}
+
+.nav ul {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul a {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.3rem 0;
+  border-bottom: 3px solid transparent;
+}
+.nav ul a:hover { border-color: var(--sea); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.8rem 1.5rem;
+  background: var(--citrus);
+  color: var(--ink);
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.btn-ghost { background: transparent; }
+.btn-small {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.95rem;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* ---------- Top band ---------- */
+.hero-band {
+  position: relative;
+  min-height: 30vh;
+  background: var(--amalfi); /* Cherry */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-band-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 640px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.hero-band-content .title {
+  font-size: clamp(2.6rem, 8vw, 4.8rem);
+  letter-spacing: 0.08em; /* a little more spaced out, per the brief */
+  color: var(--sea); /* Soft Butter */
+}
+
+.tagline {
+  max-width: 34ch;
+  margin: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  color: var(--cream); /* Dusty White — readable on the dark Cherry background */
+}
+
+@media (max-width: 600px) {
+  .hero-band { min-height: 40vh; }
+}
+
+/* Tile-style border under the hero */
+.tile-band {
+  height: 20px;
+  background-color: var(--sea);
+  background-image:
+    linear-gradient(45deg, var(--amalfi) 25%, transparent 25%, transparent 75%, var(--amalfi) 75%),
+    linear-gradient(45deg, var(--amalfi) 25%, transparent 25%, transparent 75%, var(--amalfi) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+/* ---------- Decorative book-shelf strip ---------- */
+/* For show only: clicking a spine does nothing. Hovering (or tabbing to
+   it with a keyboard) lifts it up, plays a soft pop sound, and shows its
+   title in a little tooltip above it. */
+.shelf-section { padding: 2rem 0 1.25rem; }
+
+.shelf-caption {
+  margin: 0 0 1.25rem;
+  font-weight: 700;
+  color: var(--amalfi);
+}
+
+.shelf-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 0 4px;
+}
+
+.spine {
+  position: relative;
+  flex: 0 0 auto;
+  width: 36px;
+  border: 2px solid var(--ink);
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.spine:nth-child(3n)  { width: 30px; }
+.spine:nth-child(4n)  { width: 44px; }
+
+.spine-0 { background: var(--citrus); }
+.spine-1 { background: var(--sea); }
+.spine-2 { background: var(--amalfi); }
+.spine-3 { background: var(--cream); }
+
+.spine:hover,
+.spine:focus-visible {
+  transform: translateY(-18px) rotate(-1.5deg);
+  box-shadow: 0 14px 16px -6px rgba(20, 38, 77, 0.45);
+  outline: none;
+}
+
+.spine-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translate(-50%, 6px);
+  z-index: 1;
+  width: max-content;
+  max-width: 160px;
+  padding: 0.4rem 0.7rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.spine-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--ink);
+}
+.spine:hover .spine-tooltip,
+.spine:focus-visible .spine-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.shelf-ledge {
+  height: 14px;
+  background: var(--ink);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 0 rgba(20, 38, 77, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spine { transition: none; }
+}
+
+/* ---------- Sections ---------- */
+.section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+
+.section h2 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  color: var(--amalfi);
+  margin-bottom: 1rem;
+}
+
+.section-sea   { background: var(--sea); }
+.section-sea h2 { color: var(--ink); }
+.section-cream { background: var(--cream); }
+
+.lead {
+  max-width: 60ch;
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+}
+
+/* New Arrivals heading row */
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.link-all {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--amalfi);
+  white-space: nowrap;
+}
+.section-sea .link-all { color: var(--ink); }
+.link-all:hover { text-decoration: underline; }
+
+/* Editorial blocks */
+.editorial-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.editorial-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  overflow: hidden;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+}
+
+.editorial-img {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  max-height: 340px;
+  object-fit: cover;
+}
+
+.editorial-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.75rem clamp(1.25rem, 4vw, 3rem);
+}
+
+.editorial-text h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.editorial-text p  { margin: 0; max-width: 46ch; }
+
+.eb-kicker {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amalfi);
+}
+
+/* On wider screens, pair each photo with its text side by side,
+   alternating which side the photo sits on */
+@media (min-width: 720px) {
+  .editorial-block {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .editorial-block .editorial-text { justify-content: center; }
+  .editorial-reverse .editorial-img  { order: 2; }
+  .editorial-reverse .editorial-text { order: 1; }
+}
+
+/* Who are we? cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--sea);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.card p  { margin: 0; }
+
+/* ---------- Browse ---------- */
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+}
+
+#search {
+  width: 100%;
+  max-width: 460px;
+  font: inherit;
+  padding: 0.8rem 1.2rem;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.chip {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--citrus); }
+
+.count { margin: 0 0 1rem; font-weight: 500; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.cover {
+  position: relative;
+  height: 170px;
+  overflow: visible; /* lets the book photo hang past this box's bottom edge */
+  border-bottom: 2px solid var(--ink);
+}
+.cover-0 { background: var(--citrus); }
+.cover-1 { background: var(--amalfi); }
+.cover-2 { background: var(--cream); }
+.cover-3 { background: var(--sea); }
+
+/* The book cover photo: centred, taller than the colour box so its
+   bottom hangs down past it. z-index:1 sits it above the plain
+   background but BELOW .book-body (z-index:2 below), so the beige
+   card body covers that overhang — the photo pokes up out of the
+   colour box and disappears behind the beige, like it's peeking out
+   from underneath it. */
+.book-cover-photo {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  width: 62%;
+  max-width: 130px;
+  height: 186px; /* taller than .cover's 170px, so it overhangs by ~30px */
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.book-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem 1.25rem;
+  background: var(--paper); /* opaque, so it hides the photo's overhang */
+}
+.book-body h3 { font-size: 1.25rem; }
+.book-author  { margin: 0; font-weight: 500; }
+
+.tag {
+  align-self: flex-start;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+}
+
+.book .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+.book-body .tag + .btn { margin-top: 0.75rem; }
+
+.empty { font-weight: 700; }
+
+/* ---------- FAQs ---------- */
+.faq-list {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 760px;
+  margin-top: 2rem;
+}
+
+details {
+  padding: 1rem 1.25rem;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+}
+
+summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: "+";
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--amalfi);
+}
+details[open] summary::after { content: "\2212"; }
+details p { margin: 0.75rem 0 0; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 2rem 0;
+  color: var(--cream);
+  background: var(--amalfi);
+}
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
