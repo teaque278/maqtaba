@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Katha Kosh | A Cloud Library</title>
+  <meta name="description" content="Katha Kosh is a cloud library. Browse, search and read from anywhere.">
+
+  <!-- Fonts: Fraunces (bold display serif for the title and headings), DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top">Katha Kosh</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#new-arrivals">New Arrivals</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#about">Who are we?</a></li>
+          <li><a href="#browse">Browse</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- TOP BAND -->
+    <!-- Squiggle doodles are hand-drawn SVG paths, kept inside the left/right
+         margins and top/bottom edges only, so there's a clear empty band
+         through the middle for the title — EDIT the path "d" values below
+         if you want to reshape them, or delete a <path> to remove one. -->
+    <section class="hero-band">
+      <svg class="hero-doodles" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <path d="M 10 40 C 90 10 170 30 190 90 C 210 150 110 160 90 210 C 70 260 150 280 180 330" />
+        <path d="M 10 230 C 60 200 130 215 130 260 C 130 300 70 320 30 300" />
+        <path d="M 1190 30 C 1110 5 1030 25 1015 85 C 1000 145 1100 155 1120 205 C 1140 255 1060 275 1030 325" />
+        <path d="M 1190 250 C 1140 225 1075 240 1075 285 C 1075 320 1135 335 1175 315" />
+        <path class="doodle-thin" d="M -10 26 C 90 -6 190 58 290 26 C 390 -6 490 58 590 26 C 690 -6 790 58 890 26 C 990 -6 1090 58 1210 26" />
+        <path class="doodle-thin" d="M -10 334 C 90 302 190 366 290 334 C 390 302 490 366 590 334 C 690 302 790 366 890 334 C 990 302 1090 366 1210 334" />
+      </svg>
+      <div class="hero-band-content">
+        <h1 class="title">Katha Kosh</h1>
+        <!-- EDIT: your tagline -->
+        <p class="tagline">A cloud library, open whenever you are.</p>
+        <a class="btn" href="#new-arrivals">Shop new arrivals</a>
+      </div>
+    </section>
+    <div class="tile-band" aria-hidden="true"></div>
+
+    <!-- BOOK SHELF STRIP (decorative only — clicking does nothing; hover to peek) -->
+    <section class="section shelf-section" aria-label="Decorative bookshelf">
+      <div class="wrap">
+        <p class="shelf-caption">A peek at the shelves</p>
+        <!-- Spines are built by script.js from the same "books" list used in Browse -->
+        <div id="book-shelf" class="shelf-strip"></div>
+        <div class="shelf-ledge" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- NEW ARRIVALS -->
+    <section class="section" id="new-arrivals">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>New Arrivals</h2>
+          <a class="link-all" href="#browse">Browse all &rarr;</a>
+        </div>
+        <!-- EDIT: your intro line -->
+        <p class="lead">Fresh additions to the collection, added this month.</p>
+        <div id="new-arrivals-grid" class="grid"></div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL / ARTICLES -->
+    <section class="section section-sea" id="stories">
+      <div class="wrap">
+        <h2>From the Stacks</h2>
+        <!-- EDIT: your intro line -->
+        <p class="lead">Essays, reading lists and notes from the people building Katha Kosh.</p>
+
+        <div class="editorial-grid">
+          <!-- EDIT: these are stand-in stock photos. Replace each src="..." with your own
+               (e.g. save your photo as article-1.jpg, then change src to "article-1.jpg") -->
+          <article class="editorial-block">
+            <img class="editorial-img" src="https://picsum.photos/id/36/900/700" alt="Placeholder article photo — replace with your own">
+            <div class="editorial-text">
+              <span class="eb-kicker">Essay</span>
+              <h3>Article title goes here</h3>
+              <p>A short teaser sentence or two about what the piece covers.</p>
+              <a class="btn btn-small" href="#">Read more</a>
+            </div>
+          </article>
+
+          <article class="editorial-block editorial-reverse">
+            <img class="editorial-img" src="https://picsum.photos/id/48/900/700" alt="Placeholder article photo — replace with your own">
+            <div class="editorial-text">
+              <span class="eb-kicker">Reading list</span>
+              <h3>Article title goes here</h3>
+              <p>A short teaser sentence or two about what the piece covers.</p>
+              <a class="btn btn-small" href="#">Read more</a>
+            </div>
+          </article>
+
+          <article class="editorial-block">
+            <img class="editorial-img" src="https://picsum.photos/id/60/900/700" alt="Placeholder article photo — replace with your own">
+            <div class="editorial-text">
+              <span class="eb-kicker">Notes</span>
+              <h3>Article title goes here</h3>
+              <p>A short teaser sentence or two about what the piece covers.</p>
+              <a class="btn btn-small" href="#">Read more</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO ARE WE? -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2>Who are we?</h2>
+        <!-- EDIT: replace this placeholder text with your own story -->
+        <p class="lead">Katha Kosh means a treasury of stories — and that is exactly what we are building: a library that lives in the cloud, so the books are there wherever you are.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Open to everyone</h3>
+            <p>A place for readers of every background to find something worth reading.</p>
+          </article>
+          <article class="card">
+            <h3>Always on</h3>
+            <p>No opening hours and no due dates. Pick up where you left off, on any device.</p>
+          </article>
+          <article class="card">
+            <h3>Built with care</h3>
+            <p>A collection that grows through the people who love it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BROWSE -->
+    <section class="section section-sea" id="browse">
+      <div class="wrap">
+        <h2>Browse</h2>
+
+        <div class="toolbar">
+          <label class="sr-only" for="search">Search the library</label>
+          <input id="search" type="search" placeholder="Search by title or author" autocomplete="off">
+          <div id="chips" class="chips" role="group" aria-label="Filter by category"></div>
+        </div>
+
+        <p id="count" class="count" aria-live="polite"></p>
+        <div id="book-grid" class="grid"></div>
+        <p id="empty" class="empty" hidden>Nothing matches that search. Try a different word or category.</p>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="section section-cream" id="faqs">
+      <div class="wrap">
+        <h2>FAQs</h2>
+        <!-- EDIT: replace these placeholder questions and answers -->
+        <div class="faq-list">
+          <details>
+            <summary>What is Katha Kosh?</summary>
+            <p>Katha Kosh is a cloud library: a place to browse and read a growing collection from any device.</p>
+          </details>
+          <details>
+            <summary>Do I need an account?</summary>
+            <p>Browsing is open to everyone. Accounts will be needed for uploading and saving titles.</p>
+          </details>
+          <details>
+            <summary>How do I find a book?</summary>
+            <p>Use the search box in Browse, or tap a category to narrow the list.</p>
+          </details>
+          <details>
+            <summary>Can I use it on my phone?</summary>
+            <p>Yes. The site adapts to phones, tablets and computers.</p>
+          </details>
+          <details>
+            <summary>How can I contribute?</summary>
+            <p>Contributions are coming soon. Check back, or get in touch through the details below.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <span class="brand">Katha Kosh</span>
+      <span>&copy; <span id="year"></span> Katha Kosh. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
