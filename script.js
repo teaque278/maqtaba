@@ -254,7 +254,7 @@ const spineHeights = [150, 128, 168, 138, 158, 120];
 // EDIT: how many spines to show — now that the catalogue has 100 books,
 // this strip only shows a handful rather than all of them (a "peek",
 // not the whole shelf). Change the number to show more or fewer.
-const shelfCount = 14;
+const shelfCount = 24;
 
 function renderShelf() {
   if (!shelf) return;
